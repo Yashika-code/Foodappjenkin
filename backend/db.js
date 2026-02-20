@@ -1,8 +1,7 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 require('dotenv').config(); 
 
-const uri ="mongodb+srv:abhinavsharma:abhinav99@cluster0.bhisjbw.mongodb.net/blogify?retryWrites=true&w=majority";
-
+const uri = "mongodb+srv://abhinavsharma:abhinav99@cluster0.bhisjbw.mongodb.net/blogify?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri, {
   serverApi: {
