@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link , useNavigate} from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { apiUrlWithCacheBuster } from '../config/api';
 
 const SignUp = () => {
   const [credentials, setCredentials] = useState({
@@ -23,7 +24,7 @@ const SignUp = () => {
 
     try {
 
-      const response = await fetch(`http://65.0.185.151:5000/api/createUser?timeout=${Date.now()}`, {
+      const response = await fetch(apiUrlWithCacheBuster('http://3.145.198.18:5000/api/createuser'), {
         method: 'POST',
         body: JSON.stringify(credentials),
         headers: { 'Content-Type': 'application/json' }

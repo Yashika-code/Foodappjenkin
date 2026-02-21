@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useCart, useDispatchCart } from '../components/ContextReducer';
 import { Button, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { buildApiUrl } from '../config/api';
 
 const Cart = () => {
   const cartItems = useCart();
@@ -42,7 +43,7 @@ const Cart = () => {
       }));
 
       // Use the globalFetch function
-      const result = await globalFetch('http://localhost:5000/api/orderData', {
+      const result = await globalFetch(buildApiUrl('/api/orderData'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

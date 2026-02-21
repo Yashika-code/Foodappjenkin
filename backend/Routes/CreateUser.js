@@ -9,7 +9,12 @@ require('dotenv').config();
 
 EventEmitter.defaultMaxListeners = 15;
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const DEFAULT_JWT_SECRET = 'dev-secret-change-me';
+const JWT_SECRET = process.env.JWT_SECRET || DEFAULT_JWT_SECRET;
+
+if (!process.env.JWT_SECRET) {
+  console.warn('JWT_SECRET is not set. Falling back to a development secret. Set JWT_SECRET in your environment for production use.');
+}
 
 router.post(
   '/createuser',

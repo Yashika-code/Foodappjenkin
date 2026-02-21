@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { apiUrlWithCacheBuster } from '../config/api';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -13,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     
     try {
-      const response = await fetch(`http://65.0.185.151:5000/api/login?timeout=${Date.now()}`, {
+      const response = await fetch(apiUrlWithCacheBuster('http://3.145.198.18:5000/api/login'), {
         method: 'POST',
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' }

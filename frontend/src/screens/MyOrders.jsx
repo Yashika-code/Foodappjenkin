@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import { buildApiUrl } from '../config/api';
 
 export default function MyOrder() {
     const [orderData, setOrderData] = useState(null)
@@ -11,7 +12,7 @@ export default function MyOrder() {
         console.log('User email:', userEmail)
         
         try {
-            const response = await fetch("http://3.145.198.18:5000/api/myorderData", {
+            const response = await fetch(buildApiUrl('/api/myOrderData'), {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

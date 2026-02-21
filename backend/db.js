@@ -1,7 +1,12 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 require('dotenv').config(); 
 
-const uri = "mongodb+srv://abhinavsharma:abhinav99@cluster0.bhisjbw.mongodb.net/blogify?retryWrites=true&w=majority";
+const DEFAULT_URI = "mongodb+srv://abhinavsharma:abhinav99@cluster0.bhisjbw.mongodb.net/blogify?retryWrites=true&w=majority";
+const uri = process.env.MONGODB_URI || DEFAULT_URI;
+
+if (!process.env.MONGODB_URI) {
+  console.warn('MONGODB_URI is not set. Falling back to the default connection string defined in db.js.');
+}
 
 const client = new MongoClient(uri, {
   serverApi: {

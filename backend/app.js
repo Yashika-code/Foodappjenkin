@@ -1,12 +1,13 @@
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config();
 const mongoDB = require('../backend/db'); 
 const CreateUser = require('../backend/Routes/CreateUser');
 const DisplayData = require('./Routes/DisplayData');
 const OrderData = require('./Routes/OrderData');
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 const allowedOrigins = [
   "http://localhost:3000",
