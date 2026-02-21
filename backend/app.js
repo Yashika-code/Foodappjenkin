@@ -10,7 +10,7 @@ const port = 5000;
 
 const allowedOrigins = [
   "http://localhost:3000",
-  "http://foodapp99.s3-website.ap-south-1.amazonaws.com"
+  "http://frontendfood123.s3-website.us-east-2.amazonaws.com/"
 ];
 
 app.use(cors({
